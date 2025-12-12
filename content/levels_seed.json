@@ -1,0 +1,601 @@
+{
+  "version": "0.1.0",
+  "note_zh": "MVP 关卡脚本（点读+选择）。所有句子引用来自 content/content_seed.json 的 sentence_id。",
+  "levels": [
+    {
+      "id": "lvl_11_01_001",
+      "scene_id": "scene_11_01_ask_to_play",
+      "template": "A",
+      "title_zh": "想一起玩（开口邀请）",
+      "estimated_minutes": 3,
+      "rounds": [
+        {
+          "id": "r1",
+          "type": "choice",
+          "context": [
+            { "role": "Child", "text_en": "…", "text_zh": "你想请妈妈陪你玩。" }
+          ],
+          "prompt_role": "Child",
+          "prompt_zh": "你要怎么说最自然？",
+          "options": [
+            { "id": "o1", "sentence_id": "s_11_01_001" },
+            { "id": "o2", "sentence_id": "s_11_03_017" },
+            { "id": "o3", "sentence_id": "s_11_02_013" }
+          ],
+          "correct_option_id": "o1",
+          "feedback": {
+            "correct_zh": "对！发起邀请一起玩，用 “Mommy, play with me.” 很自然。",
+            "wrong_by_option_zh": {
+              "o2": "“Time's up! Done!” 是结束游戏时说的，不是邀请。",
+              "o3": "“Not now.” 是拒绝/推迟，不是邀请。"
+            }
+          }
+        },
+        {
+          "id": "r2",
+          "type": "choice",
+          "context": [
+            { "role": "Child", "text_en": "Mommy, I'm bored.", "text_zh": "妈，我很无聊。" }
+          ],
+          "prompt_role": "Mom",
+          "prompt_zh": "妈妈想带你找点好玩的，怎么说？",
+          "options": [
+            { "id": "o1", "sentence_id": "s_11_01_014" },
+            { "id": "o2", "sentence_id": "s_11_02_001" },
+            { "id": "o3", "sentence_id": "s_11_03_021" }
+          ],
+          "correct_option_id": "o1",
+          "feedback": {
+            "correct_zh": "对！“Let's find something fun.” 很适合用来引导孩子一起想玩法。",
+            "wrong_by_option_zh": {
+              "o2": "“Let's play next time.” 是推迟到下次再玩。",
+              "o3": "“You promised…” 是提醒承诺，语气偏规则，不适合这里。"
+            }
+          }
+        },
+        {
+          "id": "r3",
+          "type": "choice",
+          "context": [
+            { "role": "Mom", "text_en": "Sure.", "text_zh": "妈妈同意陪你玩。" }
+          ],
+          "prompt_role": "Mom",
+          "prompt_zh": "妈妈想问“你想跟我玩什么呢？”，选哪句？",
+          "options": [
+            { "id": "o1", "sentence_id": "s_11_01_017" },
+            { "id": "o2", "sentence_id": "s_11_01_018" },
+            { "id": "o3", "sentence_id": "s_11_02_007" }
+          ],
+          "correct_option_id": "o1",
+          "feedback": {
+            "correct_zh": "对！这句既表达同意，也自然接上“想玩什么”。",
+            "wrong_by_option_zh": {
+              "o2": "也可以问“我们要玩什么”，但少了亲昵称呼与完整承接。",
+              "o3": "“Can you wait?” 是让对方等待，不适合已同意陪玩时。"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "id": "lvl_11_01_002",
+      "scene_id": "scene_11_01_ask_to_play",
+      "template": "B",
+      "title_zh": "对话拼图：一起决定玩什么",
+      "estimated_minutes": 3,
+      "rounds": [
+        {
+          "id": "r1",
+          "type": "next_line",
+          "dialogue_so_far": [
+            { "role": "Child", "sentence_id": "s_11_01_005" },
+            { "role": "Mom", "sentence_id": "s_11_01_002" }
+          ],
+          "prompt_role": "Mom",
+          "prompt_zh": "妈妈下一句更适合说什么？",
+          "options": [
+            { "id": "o1", "sentence_id": "s_11_01_018" },
+            { "id": "o2", "sentence_id": "s_11_02_003" },
+            { "id": "o3", "sentence_id": "s_11_03_003" }
+          ],
+          "correct_option_id": "o1",
+          "feedback": {
+            "correct_zh": "对！同意之后，顺势问“我们要玩什么呢？”推进对话。",
+            "wrong_by_option_zh": {
+              "o2": "这句是“我很忙”，会把对话转成拒绝。",
+              "o3": "设定计时器通常发生在“约定时长”的场景里。"
+            }
+          }
+        },
+        {
+          "id": "r2",
+          "type": "next_line",
+          "dialogue_so_far": [
+            { "role": "Mom", "sentence_id": "s_11_01_018" }
+          ],
+          "prompt_role": "Child",
+          "prompt_zh": "孩子想提出一个具体玩法：拼图。选哪句？",
+          "options": [
+            { "id": "o1", "sentence_id": "s_11_01_021" },
+            { "id": "o2", "sentence_id": "s_11_03_019" },
+            { "id": "o3", "sentence_id": "s_11_02_011" }
+          ],
+          "correct_option_id": "o1",
+          "feedback": {
+            "correct_zh": "对！提出具体玩法，用 “let's do a puzzle” 很明确。",
+            "wrong_by_option_zh": {
+              "o2": "“I want to play more.” 是想延长时间，不是提玩法。",
+              "o3": "“I want to play right now.” 是表达迫切，不是具体玩法。"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "id": "lvl_11_02_001",
+      "scene_id": "scene_11_02_play_later",
+      "template": "A",
+      "title_zh": "现在不行（直接拒绝 vs 温柔拒绝）",
+      "estimated_minutes": 3,
+      "rounds": [
+        {
+          "id": "r1",
+          "type": "choice",
+          "context": [
+            { "role": "Child", "sentence_id": "s_11_02_012" }
+          ],
+          "prompt_role": "Mom",
+          "prompt_zh": "妈妈现在真的没空，最简短的拒绝是？",
+          "options": [
+            { "id": "o1", "sentence_id": "s_11_02_013" },
+            { "id": "o2", "sentence_id": "s_11_01_015" },
+            { "id": "o3", "sentence_id": "s_11_03_016" }
+          ],
+          "correct_option_id": "o1",
+          "feedback": {
+            "correct_zh": "对！“Not now.” 简短直接，适合“现在不行”。",
+            "wrong_by_option_zh": {
+              "o2": "这是兴奋同意的回应，不符合“没空”。",
+              "o3": "这是提醒剩余时间，不是拒绝。"
+            }
+          }
+        },
+        {
+          "id": "r2",
+          "type": "choice",
+          "context": [
+            { "role": "Child", "sentence_id": "s_11_02_011" }
+          ],
+          "prompt_role": "Mom",
+          "prompt_zh": "想更温柔一点，先表达“我也想”，选哪句？",
+          "options": [
+            { "id": "o1", "sentence_id": "s_11_02_017" },
+            { "id": "o2", "sentence_id": "s_11_02_002" },
+            { "id": "o3", "sentence_id": "s_11_02_003" }
+          ],
+          "correct_option_id": "o1",
+          "feedback": {
+            "correct_zh": "对！先共情再拒绝，更适合亲子对话。",
+            "wrong_by_option_zh": {
+              "o2": "这句带责备感（“你没看到我很忙吗”），不够温柔。",
+              "o3": "这句礼貌，但少了“我也想陪你”的共情。"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "id": "lvl_11_02_002",
+      "scene_id": "scene_11_02_play_later",
+      "template": "A",
+      "title_zh": "给出具体时间（等 5 分钟）",
+      "estimated_minutes": 3,
+      "rounds": [
+        {
+          "id": "r1",
+          "type": "choice",
+          "context": [
+            { "role": "Mom", "sentence_id": "s_11_02_003" }
+          ],
+          "prompt_role": "Mom",
+          "prompt_zh": "接下来妈妈想给一个具体等待时间：5 分钟。选哪句？",
+          "options": [
+            { "id": "o1", "sentence_id": "s_11_02_009" },
+            { "id": "o2", "sentence_id": "s_11_03_013" },
+            { "id": "o3", "sentence_id": "s_11_03_009" }
+          ],
+          "correct_option_id": "o1",
+          "feedback": {
+            "correct_zh": "对！给出明确等待时间，孩子更容易接受。",
+            "wrong_by_option_zh": {
+              "o2": "这句是“只能再玩 5 分钟”，偏“延长/限制”，不是“等待”。",
+              "o3": "这是“约定玩 20 分钟”，属于玩多久，不是等多久。"
+            }
+          }
+        },
+        {
+          "id": "r2",
+          "type": "choice",
+          "context": [
+            { "role": "Mom", "sentence_id": "s_11_02_009" }
+          ],
+          "prompt_role": "Child",
+          "prompt_zh": "孩子想确认“5分钟后你能陪我玩吗？”，选哪句？",
+          "options": [
+            { "id": "o1", "sentence_id": "s_11_02_010" },
+            { "id": "o2", "sentence_id": "s_11_01_007" },
+            { "id": "o3", "sentence_id": "s_11_03_001" }
+          ],
+          "correct_option_id": "o1",
+          "feedback": {
+            "correct_zh": "对！用 in five minutes 来确认时间点。",
+            "wrong_by_option_zh": {
+              "o2": "这是问“有什么好玩的”，不是确认时间。",
+              "o3": "这是协商“玩多久”，不是“等多久”。"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "id": "lvl_11_02_003",
+      "scene_id": "scene_11_02_play_later",
+      "template": "B",
+      "title_zh": "对话拼图：先做完家务再玩",
+      "estimated_minutes": 3,
+      "rounds": [
+        {
+          "id": "r1",
+          "type": "next_line",
+          "dialogue_so_far": [
+            { "role": "Child", "sentence_id": "s_11_01_005" },
+            { "role": "Mom", "sentence_id": "s_11_02_003" }
+          ],
+          "prompt_role": "Child",
+          "prompt_zh": "孩子追问：那你什么时候有空？选哪句？",
+          "options": [
+            { "id": "o1", "sentence_id": "s_11_02_021" },
+            { "id": "o2", "sentence_id": "s_11_03_004" },
+            { "id": "o3", "sentence_id": "s_11_01_012" }
+          ],
+          "correct_option_id": "o1",
+          "feedback": {
+            "correct_zh": "对！追问空闲时间，用 “When are you free then?”",
+            "wrong_by_option_zh": {
+              "o2": "这是计时器规则，不是追问时间。",
+              "o3": "这是邀请玩，不是追问。"
+            }
+          }
+        },
+        {
+          "id": "r2",
+          "type": "next_line",
+          "dialogue_so_far": [
+            { "role": "Child", "sentence_id": "s_11_02_021" }
+          ],
+          "prompt_role": "Mom",
+          "prompt_zh": "妈妈给出条件：做完洗碗再玩。选哪句？",
+          "options": [
+            { "id": "o1", "sentence_id": "s_11_02_004" },
+            { "id": "o2", "sentence_id": "s_11_02_001" },
+            { "id": "o3", "sentence_id": "s_11_03_017" }
+          ],
+          "correct_option_id": "o1",
+          "feedback": {
+            "correct_zh": "对！after I do the dishes = 做完家务再陪你玩。",
+            "wrong_by_option_zh": {
+              "o2": "这句太笼统（下次），没有给出明确条件。",
+              "o3": "这是结束游戏时说的。"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "id": "lvl_11_03_001",
+      "scene_id": "scene_11_03_set_play_time",
+      "template": "A",
+      "title_zh": "定时器上场（约定规则）",
+      "estimated_minutes": 3,
+      "rounds": [
+        {
+          "id": "r1",
+          "type": "choice",
+          "context": [
+            { "role": "Mom", "text_en": "…", "text_zh": "妈妈想用计时器帮大家遵守时间。" }
+          ],
+          "prompt_role": "Mom",
+          "prompt_zh": "你要说“我把定时器设 30 分钟”，选哪句？",
+          "options": [
+            { "id": "o1", "sentence_id": "s_11_03_003" },
+            { "id": "o2", "sentence_id": "s_11_02_009" },
+            { "id": "o3", "sentence_id": "s_11_01_014" }
+          ],
+          "correct_option_id": "o1",
+          "feedback": {
+            "correct_zh": "对！用 timer + for 30 minutes 很清晰。",
+            "wrong_by_option_zh": {
+              "o2": "这是“等我 5 分钟”，不是“设定时长”。",
+              "o3": "这是“找点好玩的”，不是设定时间。"
+            }
+          }
+        },
+        {
+          "id": "r2",
+          "type": "choice",
+          "context": [
+            { "role": "Mom", "sentence_id": "s_11_03_003" }
+          ],
+          "prompt_role": "Mom",
+          "prompt_zh": "妈妈补充规则：“定时器一响我们就停止”。选哪句？",
+          "options": [
+            { "id": "o1", "sentence_id": "s_11_03_004" },
+            { "id": "o2", "sentence_id": "s_11_03_016" },
+            { "id": "o3", "sentence_id": "s_11_02_007" }
+          ],
+          "correct_option_id": "o1",
+          "feedback": {
+            "correct_zh": "对！这是规则句：timer goes off → we'll stop。",
+            "wrong_by_option_zh": {
+              "o2": "这是剩余时间提醒，不是“规则”。",
+              "o3": "这是让对方等待，不是计时器规则。"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "id": "lvl_11_03_002",
+      "scene_id": "scene_11_03_set_play_time",
+      "template": "A",
+      "title_zh": "协商时长（太长/太短）",
+      "estimated_minutes": 3,
+      "rounds": [
+        {
+          "id": "r1",
+          "type": "choice",
+          "context": [
+            { "role": "Child", "sentence_id": "s_11_03_007" }
+          ],
+          "prompt_role": "Mom",
+          "prompt_zh": "妈妈觉得 2 小时太长，想改成 1 小时。选哪句？",
+          "options": [
+            { "id": "o1", "sentence_id": "s_11_03_008" },
+            { "id": "o2", "sentence_id": "s_11_03_009" },
+            { "id": "o3", "sentence_id": "s_11_02_015" }
+          ],
+          "correct_option_id": "o1",
+          "feedback": {
+            "correct_zh": "对！这句完整表达“太长→改成 1 小时”。",
+            "wrong_by_option_zh": {
+              "o2": "这是“约定 20 分钟”，不是回应 2 小时。",
+              "o3": "这是推到明天，不是协商时长。"
+            }
+          }
+        },
+        {
+          "id": "r2",
+          "type": "choice",
+          "context": [
+            { "role": "Mom", "sentence_id": "s_11_03_009" }
+          ],
+          "prompt_role": "Child",
+          "prompt_zh": "孩子觉得 20 分钟太短了，选哪句？",
+          "options": [
+            { "id": "o1", "sentence_id": "s_11_03_010" },
+            { "id": "o2", "sentence_id": "s_11_01_015" },
+            { "id": "o3", "sentence_id": "s_11_02_013" }
+          ],
+          "correct_option_id": "o1",
+          "feedback": {
+            "correct_zh": "对！too short 用来表达“太短”。",
+            "wrong_by_option_zh": {
+              "o2": "这是兴奋同意，不是提出异议。",
+              "o3": "这是拒绝，不是协商。"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "id": "lvl_11_03_003",
+      "scene_id": "scene_11_03_set_play_time",
+      "template": "C",
+      "title_zh": "意图识别：这句是在做什么？",
+      "estimated_minutes": 2,
+      "rounds": [
+        {
+          "id": "r1",
+          "type": "intent_choice",
+          "sentence_id": "s_11_03_017",
+          "prompt_zh": "这句话更像在做什么？",
+          "options": [
+            { "id": "o1", "intent": "EndPlay", "label_zh": "结束游戏" },
+            { "id": "o2", "intent": "InvitePlay", "label_zh": "邀请一起玩" },
+            { "id": "o3", "intent": "DeclineNow", "label_zh": "现在不行" }
+          ],
+          "correct_option_id": "o1",
+          "feedback": {
+            "correct_zh": "对！Time's up = 时间到了，所以是在结束游戏。",
+            "wrong_by_option_zh": {
+              "o2": "邀请通常会出现“play with me / have fun”。",
+              "o3": "拒绝通常会出现“not now / busy / later”。"
+            }
+          }
+        },
+        {
+          "id": "r2",
+          "type": "intent_choice",
+          "sentence_id": "s_11_02_009",
+          "prompt_zh": "这句话更像在做什么？",
+          "options": [
+            { "id": "o1", "intent": "DelayWithTime", "label_zh": "推迟并给时间" },
+            { "id": "o2", "intent": "EndPlay", "label_zh": "结束游戏" },
+            { "id": "o3", "intent": "SuggestActivity", "label_zh": "一起想玩法" }
+          ],
+          "correct_option_id": "o1",
+          "feedback": {
+            "correct_zh": "对！Wait for five minutes = 先等 5 分钟。",
+            "wrong_by_option_zh": {
+              "o2": "结束常见 “Time's up / Done”。",
+              "o3": "想玩法常见 “Let's find something fun”。"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "id": "lvl_review_001",
+      "scene_id": "scene_11_03_set_play_time",
+      "template": "C",
+      "title_zh": "混合复习：邀请/推迟/结束",
+      "estimated_minutes": 3,
+      "rounds": [
+        {
+          "id": "r1",
+          "type": "choice",
+          "context": [
+            { "role": "Child", "text_en": "…", "text_zh": "你想说：我不想再看电视了。想换活动。" }
+          ],
+          "prompt_role": "Child",
+          "prompt_zh": "选一句最合适的英文：",
+          "options": [
+            { "id": "o1", "sentence_id": "s_11_01_009" },
+            { "id": "o2", "sentence_id": "s_11_02_015" },
+            { "id": "o3", "sentence_id": "s_11_03_017" }
+          ],
+          "correct_option_id": "o1",
+          "feedback": {
+            "correct_zh": "对！这句表达“我不想再看电视了”。",
+            "wrong_by_option_zh": {
+              "o2": "这是推迟到明天，不是换活动。",
+              "o3": "这是结束游戏。"
+            }
+          }
+        },
+        {
+          "id": "r2",
+          "type": "choice",
+          "context": [
+            { "role": "Mom", "text_en": "…", "text_zh": "你想说：你能等等吗？谢谢。" }
+          ],
+          "prompt_role": "Mom",
+          "prompt_zh": "选一句最合适的英文：",
+          "options": [
+            { "id": "o1", "sentence_id": "s_11_02_007" },
+            { "id": "o2", "sentence_id": "s_11_01_012" },
+            { "id": "o3", "sentence_id": "s_11_03_016" }
+          ],
+          "correct_option_id": "o1",
+          "feedback": {
+            "correct_zh": "对！Can you wait? Thanks. 很礼貌、很常用。",
+            "wrong_by_option_zh": {
+              "o2": "这是邀请玩，不是让对方等。",
+              "o3": "这是提醒剩余时间。"
+            }
+          }
+        },
+        {
+          "id": "r3",
+          "type": "choice",
+          "context": [
+            { "role": "Mom", "text_en": "…", "text_zh": "计时器响了，你要结束游戏。" }
+          ],
+          "prompt_role": "Mom",
+          "prompt_zh": "你要怎么说？",
+          "options": [
+            { "id": "o1", "sentence_id": "s_11_03_018" },
+            { "id": "o2", "sentence_id": "s_11_02_001" },
+            { "id": "o3", "sentence_id": "s_11_01_014" }
+          ],
+          "correct_option_id": "o1",
+          "feedback": {
+            "correct_zh": "对！闹钟响了（alarm went off）就是结束信号。",
+            "wrong_by_option_zh": {
+              "o2": "这是推迟到下次，不是结束当下。",
+              "o3": "这是一起找玩法，不是结束。"
+            }
+          }
+        }
+      ]
+    }
+    ,
+    {
+      "id": "lvl_review_002",
+      "scene_id": "scene_11_02_play_later",
+      "template": "A",
+      "title_zh": "复习冲刺：常用口语快速选",
+      "estimated_minutes": 3,
+      "rounds": [
+        {
+          "id": "r1",
+          "type": "choice",
+          "context": [
+            { "role": "Child", "text_en": "…", "text_zh": "孩子说：我很无聊。" }
+          ],
+          "prompt_role": "Child",
+          "prompt_zh": "选一句最合适的英文：",
+          "options": [
+            { "id": "o1", "sentence_id": "s_11_01_003" },
+            { "id": "o2", "sentence_id": "s_11_03_003" },
+            { "id": "o3", "sentence_id": "s_11_02_003" }
+          ],
+          "correct_option_id": "o1",
+          "feedback": {
+            "correct_zh": "对！“I'm bored.” 是最直接的无聊表达。",
+            "wrong_by_option_zh": {
+              "o2": "这是设定计时器的句子，不是表达无聊。",
+              "o3": "这是妈妈说“我很忙”，不是孩子的表达。"
+            }
+          }
+        },
+        {
+          "id": "r2",
+          "type": "choice",
+          "context": [
+            { "role": "Mom", "text_en": "…", "text_zh": "妈妈想说：等我洗完碗就陪你玩。" }
+          ],
+          "prompt_role": "Mom",
+          "prompt_zh": "选一句最合适的英文：",
+          "options": [
+            { "id": "o1", "sentence_id": "s_11_02_004" },
+            { "id": "o2", "sentence_id": "s_11_03_013" },
+            { "id": "o3", "sentence_id": "s_11_01_014" }
+          ],
+          "correct_option_id": "o1",
+          "feedback": {
+            "correct_zh": "对！after I do the dishes = 做完家务后再玩。",
+            "wrong_by_option_zh": {
+              "o2": "这是“只能再玩 5 分钟”，是限制时长，不是等做完家务。",
+              "o3": "这是一起想玩法，不是给出条件。"
+            }
+          }
+        },
+        {
+          "id": "r3",
+          "type": "choice",
+          "context": [
+            { "role": "Mom", "text_en": "…", "text_zh": "妈妈想说：我们只剩 5 分钟了。" }
+          ],
+          "prompt_role": "Mom",
+          "prompt_zh": "选一句最合适的英文：",
+          "options": [
+            { "id": "o1", "sentence_id": "s_11_03_016" },
+            { "id": "o2", "sentence_id": "s_11_02_001" },
+            { "id": "o3", "sentence_id": "s_11_01_001" }
+          ],
+          "correct_option_id": "o1",
+          "feedback": {
+            "correct_zh": "对！five minutes left = 只剩 5 分钟。",
+            "wrong_by_option_zh": {
+              "o2": "这是推迟到下次再玩，不是提醒剩余时间。",
+              "o3": "这是邀请一起玩。"
+            }
+          }
+        }
+      ]
+    }
+  ]
+}
+
+
